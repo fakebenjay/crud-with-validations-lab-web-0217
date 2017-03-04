@@ -1,0 +1,23 @@
+<% if @song.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@song.errors.count, "error") %>
+      This song is bullcrap. Here's why:
+    </h2>
+
+    <ul>
+    <% @song.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @song do |f| %>
+  <p>Title: <%= f.text_field :title, placeholder: "Title" %></p>
+  <p>Artist: <%= f.text_field :artist_name, placeholder: "Artist" %></p>
+  <p>Genre: <%= f.text_field :genre, placeholder: "Genre" %></p>
+  <p>Release Year: <%= f.text_field :release_year, placeholder: "Release Year" %></p>
+  <p>Check if released: <%= f.check_box :released %></p>
+  <p><%= f.submit %></p?
+<% end %>

@@ -6,6 +6,8 @@
      <th>Artist</th>
      <th>Genre</th>
      <th>Release Year</th>
+     <th>Released?</th>
+     <th>Links</th>
   </tr>
   </thead>
   <tbody>
@@ -15,6 +17,11 @@
      <td><%= s.artist_name %></td>
      <td><%= s.genre %></td>
      <td><%= s.release_year %></td>
+     <% if s.released %>
+        <td><%= "Yes" %></td>
+     <% else %>
+        <td><%= "No" %></td>
+     <% end %>
      <td><%= link_to "View", song_path(s) %>
          <%= link_to "Edit", edit_song_path(s) %>
          <!-- <%= link_to "Delete", song_path(s), method: :delete, data: { confirm: '...but you love this song?' } %>

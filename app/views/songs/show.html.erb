@@ -1,4 +1,9 @@
 <h1><%= @song.title %></h1>
-<p><%= @song.artist_name %></p>
-<p><%= @song.genre %></p>
-<p><%= @song.release_year %></p>
+<h3><%= @song.artist_name %></h3>
+<h3><%= @song.genre %></h3>
+<% if @song.released %>
+  <p><%= "Has Been Released. Amazon link soon." %></p>
+<% else %>
+  <p><%= "Not out yet. BitTorrent magnet here whenever the hell I feel like it." %></p>
+<% end %>
+<p>Released in <%= @song.release_year %></p>
